@@ -1,3 +1,4 @@
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -10,6 +11,7 @@ all_salinity = []
 all_sites = []
 
 # with grouping
+'''
 for site in unique_sites:
   water_Data = water_data[water_data['Site_Id'] == site].groupby('Year')['Salinity (ppt)']
   print (site, water_Data.sum())
@@ -18,5 +20,16 @@ for site in unique_sites:
 
 for site in all_sites:
     years = water_data.keys()
+    print(water_Data)
     plt.plot(years, water_Data, label=site)
-    
+
+'''
+for site in unique_sites:
+    salinity = water_data[water_data['Site_Id'] == site]['Salinity (ppt)']
+    time = water_data[water_data['Site_Id'] == site]['Decimal Year']
+
+
+    plt.plot(time,salinity )
+    plt.xlabel("Time")
+    plt.ylabel("Salinity Value")
+    plt.show()
