@@ -27,9 +27,20 @@ for site in all_sites:
 for site in unique_sites:
     salinity = water_data[water_data['Site_Id'] == site]['Salinity (ppt)']
     time = water_data[water_data['Site_Id'] == site]['Decimal Year']
-
+    
 
     plt.plot(time,salinity )
-    plt.xlabel("Time")
-    plt.ylabel("Salinity Value")
+    plt.xlabel("Time(Decimal Years)")
+    y_label = "Salinity(ppt): "  + site
+    plt.ylabel(y_label)
+    plt.show()
+for site in unique_sites:
+    temp = water_data[water_data['Site_Id'] == site]['Water Temp (?C)']
+    time = water_data[water_data['Site_Id'] == site]['Decimal Year']
+    
+
+    plt.plot(time,temp )
+    plt.xlabel("Time(Decimal Years)")
+    y_label = "Water temp: " + site
+    plt.ylabel(y_label)
     plt.show()
